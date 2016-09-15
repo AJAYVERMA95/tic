@@ -1,5 +1,4 @@
 var app = require('./app.js');
-const PORT = 8080;
-app.listen(PORT,function () {
-	console.log("server up and running.");
+app.listen(app.get('port'),function () {
+	console.log("server up and running on port" ,app.get('port'));
 });
