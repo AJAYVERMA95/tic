@@ -755,6 +755,7 @@
 /* 12. TESTIMONIAL */
 
 	#testimonial{
+		background-color: #262626;
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-attachment: fixed;
