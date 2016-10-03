@@ -1,6 +1,6 @@
 {
   "name": "technomacindustrialconcern",
   "description": "Node.js app using Express 4",
-  "keywords": ["node", "express", "static"],
+  "keywords": ["node", "express"],
   "image": "heroku/nodejs"
 }
