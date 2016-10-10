@@ -150,9 +150,9 @@
         $('li a[href*=#]').bind("click", function(e){
             var anchor = $(this);
             $('html, body').stop().animate({
-                scrollTop: $(anchor.attr('href')).offset().top -79
+                scrollTop: $(anchor.attr('href')).offset()
             }, 1000);
-            e.preventDefault();process.env.USER_ID
+            e.preventDefault();
         });
     }());
 

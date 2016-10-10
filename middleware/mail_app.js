@@ -1,8 +1,13 @@
 var nodemailer = require('nodemailer');
-var bodyParser = require('body-parser');
 require('dotenv').load();
 
 var mail_app = function(req,res,next){
+
+  var status = {
+    "Error" : "False",
+    "Success" : "False"
+  };
+
   var mail_transporter = nodemailer.createTransport({
     service : 'gmail',
     auth : {
@@ -10,19 +15,25 @@ var mail_app = function(req,res,next){
       pass : process.env.USER_PASS
     }
   });
+
   var mail_options = {
     from: process.env.USER_ID,
-    to: 'ajaya2v2verma@gmail.com',  
+    to: 'ajaya2v2verma@gmail.com',
     subject: req.body.subject,
     text:"name : "+req.body.name+"\nemail : "+req.body.email+"\nmessage : "+req.body.message
   };
+
   mail_transporter.sendMail(mail_options,function(err,data){
-    if(err)console.log(err);
+    if(err){
+        status["Error"] = "True";
+        res.send(status);
+    }
     else {
-      console.log("sent");
+        status["Success"] = "True";
+        res.send(status);
     }
   });
-  next();
+
 }
 
 module.exports = mail_app;
